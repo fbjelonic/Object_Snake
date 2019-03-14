@@ -1,7 +1,7 @@
 //============================================================================
 // Name        : Snake_Object.cpp
-// Author      : Filip
-// Version     :
+// Author      : Filip Bjelonic
+// Version     : 1.0
 // Copyright   : Non
 // Description : Snake in object oriented way
 //============================================================================
@@ -24,7 +24,7 @@ int main() {
 	Map map;
 
 	Border border;
-	border.SetMap(30,20);
+	border.SetMap(30,10);
 	border.buildBorder();
 
 	Snake snake(3);

@@ -91,8 +91,6 @@ public:
 			cout << "Your final score: " << score  << endl;
 		}
 	static void incSpeed(){
-		/* This function defines the frames of the game. The lower milliseconds, the
-		 * faster the game gets. */
 		if (score<=13){
 			milliseconds-=10;
 		}else if (score<=23){
