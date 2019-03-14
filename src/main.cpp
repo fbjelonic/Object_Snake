@@ -37,12 +37,12 @@ int main() {
 	map.printControl();
 	game.start();
 	while (game.run()){
+		snake.move();
 		if (food.getX()==snake.getX() && food.getY()==snake.getY()){
 			snake.eat();
 			food.makeFood();
 			game.incSpeed();
 		}
-		snake.move();
 		if (snake.bump()){
 			break;
 		}

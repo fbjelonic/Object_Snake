@@ -256,29 +256,26 @@ public:
 
 class Food: public Map{
 private:
-	int food;
 	int x[2];
 public:
 	Food() {
-		food = 0;
 		srand(time(NULL));
 		do {
 			x[0] = rand() % (width - 4) + 2;
 			x[1] = rand() % (height - 4) + 2;
-		} while (A[x[1]][x[0]] == 'O');
+		} while (A[x[1]][x[0]] != ' ');
 		Map::changeMap(x[1], x[0], 'X');
 	}
 	void makeFood() {
 		/* this function is called, if the Food is eaten by the Snake
 		 * and a new peace should be generated at a random spot. */
-		food++;
 		score++;
 		Map::changeMap(x[1], x[0], ' ');
 		srand(time(NULL));
 		do {
 			x[0] = rand() % (width - 4) + 2;
 			x[1] = rand() % (height - 4) + 2;
-		} while (A[x[1]][x[0]]=='O');
+		} while (A[x[1]][x[0]]!=' ');
 	}
 	int getX(){
 		return x[0];
