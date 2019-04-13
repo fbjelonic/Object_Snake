@@ -38,20 +38,22 @@ int main() {
 	game.start();
 	while (game.run()){
 		snake.move();
-		if (food.getX()==snake.getX() && food.getY()==snake.getY()){
-			snake.eat();
-			food.makeFood();
-			game.incSpeed();
-		}
 		if (snake.bump()){
 			break;
 		}
-		food.buildFood();
+		if (food.getX()==snake.getX() && food.getY()==snake.getY()){
+			snake.eat();
+			food.makeFood();
+			food.buildFood();
+			game.incSpeed();
+		}
 		snake.buildSnake();
 		map.printMap();
+
 		game.printScore();
 		game.printSpeed();
 		game.keepRolling();
+
 		game.sleepcp();
 	}
 	map.printMap();

@@ -52,6 +52,7 @@ public:
 	    ioctl(STDIN, FIONREAD, &bytesWaiting);
 	    return bytesWaiting;
 	}
+
 	void start(){
 		while (!running){
 			if (_kbhit()){
@@ -186,7 +187,7 @@ public:
 	void move() {
 		/* Defines the movement of the Snake by key pressed. */
 		char direction;
-		if (_kbhit()) {
+		if (_kbhit()){
 			cin >> direction;
 			if (checkDirection(&direction)) {
 				v[0]=oldv[0];
@@ -270,7 +271,7 @@ public:
 		/* this function is called, if the Food is eaten by the Snake
 		 * and a new peace should be generated at a random spot. */
 		score++;
-		Map::changeMap(x[1], x[0], ' ');
+		Map::changeMap(x[1], x[0], 'O');
 		srand(time(NULL));
 		do {
 			x[0] = rand() % (width - 4) + 2;
