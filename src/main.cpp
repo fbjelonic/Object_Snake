@@ -7,15 +7,15 @@
 //============================================================================
 
 
-#include "Snake.cpp"
+#include "Snake.h"
 
 using namespace std;
 
+int Game::score=0;
+int Game::milliseconds=200;
 char Map::A[100][100];
 int Map::width;
 int Map::height;
-int Game::score=0;
-int Game::milliseconds=200;
 
 int main() {
 

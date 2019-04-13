@@ -27,7 +27,15 @@ public:
 	bool run();
 	void sleepcp();
 	void youLost();
-	static void incSpeed();
+	static void incSpeed() {
+		if (score <= 13) {
+			milliseconds -= 10;
+		} else if (score <= 23) {
+			milliseconds -= 2;
+		} else if (score <= 33) {
+			milliseconds -= 1;
+		}
+	}
 };
 
 class Map: public Game{
@@ -36,12 +44,17 @@ protected:
 	static int width;
 	static int height;
 
-	static void changeMap(int a, int b, char c);
+	static void changeMap(int a, int b, char c) {
+		A[a][b] = c;
+	}
 public:
 	Map();
 	void printMap();
 	void printControl();
-	static void SetMap(int a, int b);
+	static void SetMap(int a, int b) {
+		Map::width = a;
+		Map::height = b;
+	}
 };
 
 
@@ -79,10 +92,7 @@ private:
 	void newFood();
 	void buildFood();
 public:
-	Food() {
-		newFood();
-		buildFood();
-	}
+	Food();
 	void makeFood();
 	int getX();
 	int getY();

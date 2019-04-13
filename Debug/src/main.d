@@ -1,3 +1,3 @@
-src/main.d: ../src/main.cpp ../src/Snake.cpp
+src/main.d: ../src/main.cpp ../src/Snake.h
 
-../src/Snake.cpp:
+../src/Snake.h:
