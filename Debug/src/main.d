@@ -1,3 +1,3 @@
-src/main.d: ../src/main.cpp ../src/ClassesFile.cpp
+src/main.d: ../src/main.cpp ../src/Snake.cpp
 
-../src/ClassesFile.cpp:
+../src/Snake.cpp:

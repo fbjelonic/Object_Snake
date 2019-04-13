@@ -7,7 +7,7 @@
 //============================================================================
 
 
-#include "ClassesFile.cpp"
+#include "Snake.cpp"
 
 using namespace std;
 
@@ -22,13 +22,11 @@ int main() {
 	Game game;
 
 	Map map;
+	map.SetMap(30,10);
 
 	Border border;
-	border.SetMap(30,10);
-	border.buildBorder();
 
 	Snake snake(3);
-	snake.buildSnake();
 
 	Food food;
 
@@ -44,7 +42,6 @@ int main() {
 		if (food.getX()==snake.getX() && food.getY()==snake.getY()){
 			snake.eat();
 			food.makeFood();
-			food.buildFood();
 			game.incSpeed();
 		}
 		snake.buildSnake();
