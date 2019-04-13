@@ -130,7 +130,7 @@ Border::Border() {
 }
 
 void Snake::initSnake() {
-	for (int i = 0; i < length + 1; i++) {
+	for (int i = 0; i <= length; i++) {
 		body[i][0] = Map::width / 2;
 		body[i][1] = Map::height / 2;
 	}
@@ -170,11 +170,17 @@ bool Snake::checkDirection(char* x) {
 	}
 }
 Snake::Snake(int x) :
-		length(x) {
+		length(x),eating(false) {
 	initSnake();
 	buildSnake();
 }
 void Snake::buildSnake() {
+	if (eating) {
+		Map::changeMap(body[length-1][1], body[length-1][0], 'O');
+		eating=false;
+	} else {
+		Map::changeMap(body[length][1], body[length][0], ' '); /* To erase old tail of Snake */
+	}
 	for (int i = 0; i < length; i++) {
 		Map::changeMap(body[i][1], body[i][0], 'O');
 	}
@@ -191,7 +197,6 @@ void Snake::move() {
 		oldv[0] = v[0];
 		oldv[1] = v[1];
 	}
-	Map::changeMap(body[length - 1][1], body[length - 1][0], ' '); /* To erase old tail of Snake */
 	for (int i = length; i > 0; i--) {
 		body[i][0] = body[i - 1][0];
 		body[i][1] = body[i - 1][1];
@@ -209,6 +214,7 @@ bool Snake::bump() {
 
 void Snake::eat() {
 	length++;
+	eating=true;
 }
 int Snake::getX() {
 	return body[0][0];
@@ -236,7 +242,6 @@ void Food::makeFood() {
 	/* this function is called, if the Food is eaten by the Snake
 	 * and a new peace should be generated at a random spot. */
 	score++;
-	Map::changeMap(x[1], x[0], 'O');
 	newFood();
 	buildFood();
 }

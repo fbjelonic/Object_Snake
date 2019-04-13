@@ -71,6 +71,7 @@ private:
 	int body[1000][2];
 	int v[2];
 	int oldv[2];
+	bool eating;
 
 	void initSnake();
 	void parseDir(char* direction);
